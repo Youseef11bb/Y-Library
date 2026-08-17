@@ -14,7 +14,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 20
 
     - name: Install Dependencies & Build Web
       run: |
@@ -27,9 +27,8 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Add Android Platform & Build APK
+    - name: Sync Capacitor & Build APK
       run: |
-        npx cap add android
         npx cap sync android
         cd android
         ./gradlew assembleDebug
